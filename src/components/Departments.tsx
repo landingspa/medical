@@ -13,7 +13,7 @@ export default function Departments() {
         "Chuyên khoa điều trị các rối loạn giấc ngủ như mất ngủ, khó ngủ, ngủ không sâu giấc",
       detail:
         "Với đội ngũ bác sĩ chuyên môn cao và trang thiết bị hiện đại, chúng tôi cam kết mang đến giải pháp điều trị hiệu quả nhất cho bệnh nhân. Phương pháp điều trị kết hợp giữa y học hiện đại và liệu pháp tâm lý.",
-      image: "assets/img/departments-1.jpg",
+      image: "assets/img/departments-1.png",
     },
     {
       id: "tabs-tab-2",
@@ -22,7 +22,7 @@ export default function Departments() {
         "Hỗ trợ điều trị stress, căng thẳng do áp lực công việc và cuộc sống",
       detail:
         "Chương trình điều trị stress toàn diện bao gồm tư vấn tâm lý, liệu pháp thư giãn và các phương pháp điều trị hiện đại giúp bệnh nhân giảm căng thẳng và cải thiện chất lượng cuộc sống.",
-      image: "assets/img/departments-2.jpg",
+      image: "assets/img/departments-2.png",
     },
     {
       id: "tabs-tab-3",
@@ -30,7 +30,7 @@ export default function Departments() {
       description: "Tư vấn và điều trị các vấn đề tâm lý, hành vi và cảm xúc",
       detail:
         "Dịch vụ tư vấn tâm lý chuyên nghiệp cho cá nhân và gia đình. Chúng tôi áp dụng các phương pháp điều trị tâm lý hiện đại, phù hợp với từng đối tượng bệnh nhân.",
-      image: "assets/img/departments-3.jpg",
+      image: "assets/img/departments-3.png",
     },
     {
       id: "tabs-tab-4",
@@ -39,7 +39,7 @@ export default function Departments() {
         "Khám và tư vấn sức khỏe tổng quát, tầm soát các vấn đề sức khỏe",
       detail:
         "Dịch vụ khám sức khỏe tổng quát với quy trình chuyên nghiệp, đội ngũ y bác sĩ giàu kinh nghiệm. Chúng tôi cung cấp các gói khám sức khỏe phù hợp với từng độ tuổi.",
-      image: "assets/img/departments-4.jpg",
+      image: "assets/img/departments-4.png",
     },
     {
       id: "tabs-tab-5",
@@ -47,7 +47,7 @@ export default function Departments() {
       description: "Tư vấn chế độ dinh dưỡng hợp lý cho sức khỏe tâm thần",
       detail:
         "Chế độ dinh dưỡng có vai trò quan trọng trong việc cải thiện giấc ngủ và giảm stress. Chúng tôi tư vấn chế độ ăn uống khoa học, phù hợp với tình trạng sức khỏe của từng bệnh nhân.",
-      image: "assets/img/departments-5.jpg",
+      image: "assets/img/departments-5.png",
     },
   ];
 

@@ -16,7 +16,7 @@ export default function Doctors() {
             <div className="team-member">
               <div className="member-img">
                 <img
-                  src="/assets/img/doctors/doctor-1.jpg"
+                  src="/assets/img/doctors/doctor-1.png"
                   className="img-fluid"
                   alt="BS CKII Nguyễn Văn Quang"
                 />
@@ -47,7 +47,7 @@ export default function Doctors() {
             <div className="team-member">
               <div className="member-img">
                 <img
-                  src="/assets/img/doctors/doctor-2.jpg"
+                  src="/assets/img/doctors/doctor-1.png"
                   className="img-fluid"
                   alt="Bác sĩ"
                 />
@@ -78,7 +78,7 @@ export default function Doctors() {
             <div className="team-member">
               <div className="member-img">
                 <img
-                  src="/assets/img/doctors/doctor-3.jpg"
+                  src="/assets/img/doctors/doctor-1.png"
                   className="img-fluid"
                   alt="Bác sĩ"
                 />

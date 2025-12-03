@@ -13,7 +13,7 @@ export default function About() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <img src="assets/img/about.jpg" className="img-fluid" alt="" />
+            <img src="assets/img/about.png" className="img-fluid" alt="" />
             <a
               href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
               className="glightbox pulsating-play-btn"

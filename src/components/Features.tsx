@@ -8,7 +8,7 @@ export default function Features() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <img src="assets/img/features.jpg" alt="" />
+            <img src="assets/img/features.png" alt="" />
           </div>
 
           <div
