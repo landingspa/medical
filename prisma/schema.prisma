@@ -1,0 +1,253 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Hero Carousel Section
+model HeroSlide {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  image       String
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("hero_slides")
+}
+
+// About Section
+model About {
+  id              Int      @id @default(autoincrement())
+  title           String
+  subtitle        String?
+  description     String   @db.Text
+  image           String
+  videoUrl        String?
+  highlights      String[] // Array of highlight points
+  additionalText  String?  @db.Text
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("about")
+}
+
+// Stats Section
+model Stat {
+  id          Int      @id @default(autoincrement())
+  icon        String
+  value       Int
+  label       String
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("stats")
+}
+
+// Features Section
+model Feature {
+  id          Int      @id @default(autoincrement())
+  icon        String
+  title       String
+  description String   @db.Text
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("features")
+}
+
+// Services Section
+model Service {
+  id          Int      @id @default(autoincrement())
+  icon        String
+  title       String
+  description String   @db.Text
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("services")
+}
+
+// Departments Section
+model Department {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String        @db.Text
+  detail      String        @db.Text
+  image       String
+  order       Int           @default(0)
+  isActive    Boolean       @default(true)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  appointments Appointment[]
+
+  @@map("departments")
+}
+
+// Doctors Section
+model Doctor {
+  id              Int           @id @default(autoincrement())
+  name            String
+  specialization  String
+  image           String
+  bio             String?       @db.Text
+  experience      Int?          // Years of experience
+  education       String?       @db.Text
+  facebookUrl     String?
+  instagramUrl    String?
+  linkedinUrl     String?
+  order           Int           @default(0)
+  isActive        Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  appointments    Appointment[]
+
+  @@map("doctors")
+}
+
+// Appointment Status Enum
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+// Appointments Section
+model Appointment {
+  id           Int               @id @default(autoincrement())
+  name         String
+  email        String
+  phone        String
+  date         DateTime
+  departmentId Int?
+  department   Department?       @relation(fields: [departmentId], references: [id])
+  doctorId     Int?
+  doctor       Doctor?           @relation(fields: [doctorId], references: [id])
+  message      String?           @db.Text
+  status       AppointmentStatus @default(PENDING)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  @@map("appointments")
+}
+
+// Testimonials Section
+model Testimonial {
+  id         Int      @id @default(autoincrement())
+  text       String   @db.Text
+  name       String
+  position   String
+  image      String
+  rating     Int      @default(5)
+  order      Int      @default(0)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("testimonials")
+}
+
+// Gallery Section
+model GalleryImage {
+  id          Int      @id @default(autoincrement())
+  image       String
+  title       String?
+  description String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("gallery_images")
+}
+
+// Pricing Section
+model PricingPlan {
+  id          Int      @id @default(autoincrement())
+  name        String
+  price       Int
+  period      String   // "lần", "tháng"
+  features    String[] // Array of features
+  isFeatured  Boolean  @default(false)
+  isAdvanced  Boolean  @default(false)
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("pricing_plans")
+}
+
+// FAQ Section
+model Faq {
+  id         Int      @id @default(autoincrement())
+  question   String   @db.Text
+  answer     String   @db.Text
+  order      Int      @default(0)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("faqs")
+}
+
+// Contact Information
+model ContactInfo {
+  id             Int      @id @default(autoincrement())
+  address        String   @db.Text
+  phone          String
+  email          String
+  workingHours   String   @db.Text
+  mapEmbedUrl    String?  @db.Text
+  facebookUrl    String?
+  instagramUrl   String?
+  twitterUrl     String?
+  linkedinUrl    String?
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("contact_info")
+}
+
+// Contact Messages from contact form
+model ContactMessage {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String
+  subject    String
+  message    String   @db.Text
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("contact_messages")
+}
+
+// Site Settings
+model SiteSetting {
+  id          Int      @id @default(autoincrement())
+  key         String   @unique
+  value       String   @db.Text
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("site_settings")
+}

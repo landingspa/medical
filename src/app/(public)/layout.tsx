@@ -4,7 +4,7 @@ import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "../../main.css";
+import "../../../main.css";
 import BootstrapClient from "@/components/BootstrapClient";
 
 const roboto = Roboto({
