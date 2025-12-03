@@ -1,0 +1,5 @@
+<!-- Placeholder - Thay thế bằng logo thật -->
+<svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
+  <rect width="150" height="50" fill="#3fbbc0"/>
+  <text x="75" y="30" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Logo</text>
+</svg>
