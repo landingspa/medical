@@ -251,3 +251,17 @@ model SiteSetting {
 
   @@map("site_settings")
 }
+
+// Admin Users
+model Admin {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String   // Hashed password
+  email     String   @unique
+  name      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("admins")
+}

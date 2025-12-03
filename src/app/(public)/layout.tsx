@@ -6,6 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../../../main.css";
 import BootstrapClient from "@/components/BootstrapClient";
+import { Providers } from "@/components/Providers";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -41,8 +42,10 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${raleway.variable} ${poppins.variable}`}
       >
-        <BootstrapClient />
-        {children}
+        <Providers>
+          <BootstrapClient />
+          {children}
+        </Providers>
       </body>
     </html>
   );

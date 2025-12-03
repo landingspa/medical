@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -6,6 +7,7 @@ async function main() {
     console.log('🌱 Starting seed...');
 
     // Clear existing data
+    await prisma.admin.deleteMany();
     await prisma.contactMessage.deleteMany();
     await prisma.appointment.deleteMany();
     await prisma.faq.deleteMany();
@@ -435,7 +437,23 @@ async function main() {
         ],
     });
 
+    // Seed Admin User
+    console.log('👤 Seeding admin user...');
+    const hashedPassword = await bcrypt.hash('Admin@2025', 10);
+    await prisma.admin.create({
+        data: {
+            username: 'admin',
+            password: hashedPassword,
+            email: 'admin@medical.com',
+            name: 'Administrator',
+            isActive: true,
+        },
+    });
+
     console.log('✅ Seed completed successfully!');
+    console.log('🔑 Admin credentials:');
+    console.log('   Username: admin');
+    console.log('   Password: Admin@2025');
 }
 
 main()
